@@ -14,6 +14,14 @@ module RedmineActivity
       fetcher = Fetcher.new(options)
       fetcher.today
     end
+
+    desc '-v, --version', 'Print the version'
+    map %w(-v --version) => :version
+
+    # Print the version
+    def version
+      puts "redmine_activity #{RedmineActivity::VERSION}"
+    end
   end
 
   CLI.start
