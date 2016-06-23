@@ -1,3 +1,4 @@
+require 'active_support/time'
 require 'mechanize'
 
 module RedmineActivity
@@ -36,7 +37,11 @@ module RedmineActivity
       xml.css('entry').each do |entry|
         title = entry.css('title').text
         updated = entry.css('updated').text
-        puts "#{title} (#{updated})"
+        updated_time = Time.parse(updated).getlocal
+
+        if today?(updated_time)
+          puts "#{title} (#{updated_time.strftime('%Y-%m-%d %H:%M:%S')})"
+        end
       end
     end
 
@@ -48,6 +53,14 @@ module RedmineActivity
 
     def activity_atom_url
       "#{@url}/activity.atom"
+    end
+
+    def today?(time)
+      today_time_range.include?(time)
+    end
+
+    def today_time_range
+      @today_time_range ||= Date.today.beginning_of_day..Date.today.end_of_day
     end
   end
 end
