@@ -34,9 +34,3 @@ Style/MutableConstant:
   Exclude:
     - 'lib/redmine_activity/fetcher.rb'
     - 'lib/redmine_activity/version.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/UnneededPercentQ:
-  Exclude:
-    - 'redmine_activity.gemspec'
