@@ -21,13 +21,6 @@ Metrics/LineLength:
 Metrics/MethodLength:
   Max: 16
 
-# Offense count: 1
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'lib/redmine_activity/cli.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 Style/MutableConstant:
