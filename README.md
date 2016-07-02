@@ -1,5 +1,7 @@
 # RedmineActivity
 
+[![Build Status](https://travis-ci.org/emsk/redmine_activity.svg?branch=master)](https://travis-ci.org/emsk/redmine_activity)
+
 Summarize activities on Redmine.
 
 ## Installation
