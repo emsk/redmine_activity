@@ -1,6 +1,7 @@
 # RedmineActivity
 
 [![Build Status](https://travis-ci.org/emsk/redmine_activity.svg?branch=master)](https://travis-ci.org/emsk/redmine_activity)
+[![Coverage Status](https://coveralls.io/repos/github/emsk/redmine_activity/badge.svg?branch=master)](https://coveralls.io/github/emsk/redmine_activity)
 
 Summarize activities on Redmine.
 
