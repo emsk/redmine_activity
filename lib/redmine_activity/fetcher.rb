@@ -37,10 +37,10 @@ module RedmineActivity
       xml.css('entry').each do |entry|
         title = entry.css('title').text
         updated = entry.css('updated').text
-        updated_time = Time.parse(updated).getlocal
+        updated_time = Time.parse(updated).utc
 
         if today?(updated_time)
-          puts "#{title} (#{updated_time.strftime('%Y-%m-%d %H:%M:%S')})"
+          puts "#{title} (#{updated})"
         end
       end
     end

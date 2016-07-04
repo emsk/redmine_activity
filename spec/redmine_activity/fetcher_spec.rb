@@ -18,8 +18,8 @@ describe RedmineActivity::Fetcher do
       let(:date) { '2016-06-22' }
       let(:message) do
         <<-EOS
-Sample Project 1 - 機能 #50 (新規): サンプルチケット２ (2016-06-22 22:09:22)
-Sample Project 1 - 機能 #49 (新規): サンプルチケット１ (2016-06-22 21:52:58)
+Sample Project 1 - 機能 #50 (新規): サンプルチケット２ (2016-06-22T13:09:22Z)
+Sample Project 1 - 機能 #49 (新規): サンプルチケット１ (2016-06-22T12:52:58Z)
         EOS
       end
 
