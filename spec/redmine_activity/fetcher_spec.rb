@@ -1,3 +1,5 @@
+# coding: utf-8
+
 describe RedmineActivity::Fetcher do
   let(:fetcher) do
     described_class.new(
