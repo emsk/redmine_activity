@@ -56,7 +56,7 @@ module RedmineActivity
     end
 
     def today?(time)
-      today_time_range.include?(time)
+      today_time_range.cover?(time)
     end
 
     def today_time_range
