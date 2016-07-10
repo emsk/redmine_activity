@@ -7,23 +7,31 @@ Summarize activities on Redmine.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'redmine_activity'
+```sh
+$ git clone https://github.com/emsk/redmine_activity.git
+$ cd redmine_activity
+$ gem build redmine_activity.gemspec
+$ gem install redmine_activity-0.1.0.gem
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install redmine_activity
 
 ## Usage
 
-    $ redmine_activity today
+Print today's activities:
+
+```sh
+$ redmine_activity today --url=http://example.com/redmine --login-id=admin --password=pass
+Example Project - 機能 #1 (新規): チケット１ (2016-01-23T12:34:56Z)
+```
+
+## ENV
+
+| ENV Variable | Description |
+| :----------- | :---------- |
+| `REDMINE_ACTIVITY_URL` | Redmine URL |
+| `REDMINE_ACTIVITY_LOGIN_ID` | Redmine login ID |
+| `REDMINE_ACTIVITY_PASSWORD` | Redmine password |
+
+You can execute the command without passing options.
 
 ## Development
 
