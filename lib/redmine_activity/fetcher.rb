@@ -39,9 +39,7 @@ module RedmineActivity
         updated = entry.css('updated').text
         updated_time = Time.parse(updated).utc
 
-        if today?(updated_time)
-          puts "#{title} (#{updated})"
-        end
+        puts "#{title} (#{updated})" if updated_time.today?
       end
     end
 
@@ -53,14 +51,6 @@ module RedmineActivity
 
     def activity_atom_url
       "#{@url}/activity.atom"
-    end
-
-    def today?(time)
-      today_time_range.cover?(time)
-    end
-
-    def today_time_range
-      @today_time_range ||= Date.today.beginning_of_day..Date.today.end_of_day
     end
   end
 end
