@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require 'redmine_activity'
+
+RedmineActivity::CLI.start

@@ -24,6 +24,4 @@ module RedmineActivity
       puts "redmine_activity #{RedmineActivity::VERSION}"
     end
   end
-
-  CLI.start
 end
