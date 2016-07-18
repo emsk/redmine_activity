@@ -4,6 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/emsk/redmine_activity/badge.svg?branch=master)](https://coveralls.io/github/emsk/redmine_activity)
 [![Code Climate](https://codeclimate.com/github/emsk/redmine_activity/badges/gpa.svg)](https://codeclimate.com/github/emsk/redmine_activity)
 [![Dependency Status](https://gemnasium.com/badges/github.com/emsk/redmine_activity.svg)](https://gemnasium.com/github.com/emsk/redmine_activity)
+[![Inline docs](http://inch-ci.org/github/emsk/redmine_activity.svg?branch=master)](http://inch-ci.org/github/emsk/redmine_activity)
 
 Summarize activities on Redmine.
 
