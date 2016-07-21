@@ -37,6 +37,10 @@ Example Project - 機能 #1 (新規): チケット１ (2016-01-23T12:34:56Z)
 
 You can execute the command without passing options.
 
+## Documentation
+
+http://www.rubydoc.info/github/emsk/redmine_activity
+
 ## Development
 
 WIP
