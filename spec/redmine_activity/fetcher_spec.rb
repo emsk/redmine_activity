@@ -11,7 +11,7 @@ describe RedmineActivity::Fetcher do
 
   describe '#today', vcr: { cassette_name: 'today' } do
     before do
-      expect(Date).to receive(:today).and_return(Date.parse(date)).twice
+      expect(Date).to receive(:today).and_return(Date.parse(date).in_time_zone('Asia/Tokyo')).twice
     end
 
     subject { -> { fetcher.today } }
@@ -20,7 +20,7 @@ describe RedmineActivity::Fetcher do
       let(:date) { '2016-06-22' }
       let(:message) do
         <<-EOS
-Sample Project 1 - 機能 #50 (新規): サンプルチケット２ (2016-06-22T13:09:22Z)
+Sample Project 1 - 機能 #50 (新規): サンプルチケット２ (2016-06-22T14:59:59Z)
 Sample Project 1 - 機能 #49 (新規): サンプルチケット１ (2016-06-22T12:52:58Z)
         EOS
       end
@@ -29,7 +29,7 @@ Sample Project 1 - 機能 #49 (新規): サンプルチケット１ (2016-06-22T
     end
 
     context 'when activities do not exist' do
-      let(:date) { '2016-06-23' }
+      let(:date) { '2016-06-24' }
       it { is_expected.not_to output.to_stdout }
     end
   end
