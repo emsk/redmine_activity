@@ -5,6 +5,18 @@ require 'redmine_activity/fetcher'
 module RedmineActivity
   # Command-line interface of {RedmineActivity}
   class CLI < Thor
+    desc 'get', "Print one day's activities"
+    option :url, type: :string
+    option :login_id, type: :string
+    option :password, type: :string
+    option :date, type: :string
+
+    # Print one day's activities
+    def get
+      fetcher = Fetcher.new(options)
+      fetcher.get
+    end
+
     desc 'today', "Print today's activities"
     option :url, type: :string
     option :login_id, type: :string
@@ -12,8 +24,7 @@ module RedmineActivity
 
     # Print today's activities
     def today
-      fetcher = Fetcher.new(options)
-      fetcher.today
+      get
     end
 
     desc '-v, --version', 'Print the version'

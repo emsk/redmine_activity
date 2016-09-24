@@ -13,6 +13,7 @@ module RedmineActivity
     # @option options [String] :url Redmine URL
     # @option options [String] :login_id Login ID
     # @option options [String] :password Password
+    # @option options [String] :date Date
     def initialize(options = {})
       @url      = ENV['REDMINE_ACTIVITY_URL']
       @login_id = ENV['REDMINE_ACTIVITY_LOGIN_ID']
@@ -23,8 +24,8 @@ module RedmineActivity
       end
     end
 
-    # Fetch and print today's activities
-    def today
+    # Fetch and print activities
+    def get
       agent = Mechanize.new
       login_page = agent.get(login_url)
       login_page.form_with(LOGIN_CRITERIA) do |form|
@@ -32,14 +33,14 @@ module RedmineActivity
         form.password = @password
       end.submit
 
-      body = agent.get(activity_atom_url, ACTIVITY_ATOM_PARAMS).body
+      body = agent.get(activity_atom_url, activity_atom_params).body
       xml = Nokogiri::XML(body)
       xml.css('entry').each do |entry|
         title = entry.css('title').text
         updated = entry.css('updated').text
         updated_time = Time.parse(updated).utc
 
-        puts "#{title} (#{updated})" if today?(updated_time)
+        puts "#{title} (#{updated})" if cover?(updated_time)
       end
     end
 
@@ -53,12 +54,20 @@ module RedmineActivity
       "#{@url}/activity.atom"
     end
 
-    def today?(time)
-      today_time_range.cover?(time)
+    def activity_atom_params
+      return ACTIVITY_ATOM_PARAMS unless @date
+      ACTIVITY_ATOM_PARAMS.merge(from: @date)
     end
 
-    def today_time_range
-      @today_time_range ||= Date.today.beginning_of_day..Date.today.end_of_day
+    def cover?(time)
+      time_range.cover?(time)
+    end
+
+    def time_range
+      return @time_range if @time_range
+
+      date = @date ? Date.parse(@date) : Date.today
+      @time_range = date.beginning_of_day..date.end_of_day
     end
   end
 end
