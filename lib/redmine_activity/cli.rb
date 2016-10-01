@@ -13,7 +13,9 @@ module RedmineActivity
 
     # Print one day's activities
     def get
-      fetcher = Fetcher.new(options)
+      fetcher_options = options.dup
+      fetcher_options[:date] = @date if @date
+      fetcher = Fetcher.new(fetcher_options)
       fetcher.get
     end
 
@@ -24,6 +26,17 @@ module RedmineActivity
 
     # Print today's activities
     def today
+      get
+    end
+
+    desc 'yesterday', "Print yesterday's activities"
+    option :url, type: :string
+    option :login_id, type: :string
+    option :password, type: :string
+
+    # Print yesterday's activities
+    def yesterday
+      @date = Date.yesterday.to_s
       get
     end
 

@@ -135,6 +135,79 @@ Usage: "#{command} today"
     end
   end
 
+  describe '#yesterday' do
+    let(:date) { '2016-09-01' }
+    let(:fetcher_mock) { instance_double('fetcher') }
+
+    context 'given no options' do
+      let(:options) { { 'date' => date } }
+      let(:thor_args) { %w(yesterday) }
+
+      before do
+        expect(Date).to receive_message_chain(:yesterday, :to_s).and_return(date)
+        expect(RedmineActivity::Fetcher).to receive(:new).with(options).and_return(fetcher_mock)
+        expect(fetcher_mock).to receive(:get).with(no_args)
+      end
+
+      it { is_expected.not_to output.to_stdout }
+    end
+
+    context 'given --url option' do
+      let(:options) { { 'date' => date, 'url' => 'http://example.com/' } }
+      let(:thor_args) { %w(yesterday --url=http://example.com/) }
+
+      before do
+        expect(Date).to receive_message_chain(:yesterday, :to_s).and_return(date)
+        expect(RedmineActivity::Fetcher).to receive(:new).with(options).and_return(fetcher_mock)
+        expect(fetcher_mock).to receive(:get).with(no_args)
+      end
+
+      it { is_expected.not_to output.to_stdout }
+    end
+
+    context 'given --login-id option' do
+      let(:options) { { 'date' => date, 'login_id' => 'beer' } }
+      let(:thor_args) { %w(yesterday --login-id=beer) }
+
+      before do
+        expect(Date).to receive_message_chain(:yesterday, :to_s).and_return(date)
+        expect(RedmineActivity::Fetcher).to receive(:new).with(options).and_return(fetcher_mock)
+        expect(fetcher_mock).to receive(:get).with(no_args)
+      end
+
+      it { is_expected.not_to output.to_stdout }
+    end
+
+    context 'given --password option' do
+      let(:options) { { 'date' => date, 'password' => 'whiskey' } }
+      let(:thor_args) { %w(yesterday --password=whiskey) }
+
+      before do
+        expect(Date).to receive_message_chain(:yesterday, :to_s).and_return(date)
+        expect(RedmineActivity::Fetcher).to receive(:new).with(options).and_return(fetcher_mock)
+        expect(fetcher_mock).to receive(:get).with(no_args)
+      end
+
+      it { is_expected.not_to output.to_stdout }
+    end
+
+    context 'given --date option' do
+      let(:thor_args) { %w(yesterday --date=2016-01-01) }
+      let(:message) do
+        <<-EOS
+ERROR: "#{command} yesterday" was called with arguments ["--date=2016-01-01"]
+Usage: "#{command} yesterday"
+        EOS
+      end
+
+      before do
+        expect(File).to receive(:basename).with($PROGRAM_NAME).and_return(command).at_least(:once)
+      end
+
+      it { is_expected.to output(message).to_stderr }
+    end
+  end
+
   describe '#version' do
     context 'given --version option' do
       let(:thor_args) { %w(--version) }
