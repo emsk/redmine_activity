@@ -40,7 +40,7 @@ module RedmineActivity
         updated = entry.css('updated').text
         updated_time = Time.parse(updated).utc
 
-        puts "#{title} (#{updated})" if cover?(updated_time)
+        puts "#{Rainbow(title).yellow} (#{updated})" if cover?(updated_time)
       end
     end
 
