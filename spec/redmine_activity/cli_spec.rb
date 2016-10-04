@@ -54,6 +54,18 @@ describe RedmineActivity::CLI do
       it { is_expected.not_to output.to_stdout }
     end
 
+    context 'given --user-id option' do
+      let(:options) { { 'user_id' => 1 } }
+      let(:thor_args) { %w(get --user-id=1) }
+
+      before do
+        expect(RedmineActivity::Fetcher).to receive(:new).with(options).and_return(fetcher_mock)
+        expect(fetcher_mock).to receive(:get).with(no_args)
+      end
+
+      it { is_expected.not_to output.to_stdout }
+    end
+
     context 'given --date option' do
       let(:options) { { 'date' => '2016-01-01' } }
       let(:thor_args) { %w(get --date=2016-01-01) }
@@ -109,6 +121,18 @@ describe RedmineActivity::CLI do
     context 'given --password option' do
       let(:options) { { 'password' => 'whiskey' } }
       let(:thor_args) { %w(today --password=whiskey) }
+
+      before do
+        expect(RedmineActivity::Fetcher).to receive(:new).with(options).and_return(fetcher_mock)
+        expect(fetcher_mock).to receive(:get).with(no_args)
+      end
+
+      it { is_expected.not_to output.to_stdout }
+    end
+
+    context 'given --user-id option' do
+      let(:options) { { 'user_id' => 1 } }
+      let(:thor_args) { %w(today --user-id=1) }
 
       before do
         expect(RedmineActivity::Fetcher).to receive(:new).with(options).and_return(fetcher_mock)
@@ -181,6 +205,19 @@ Usage: "#{command} today"
     context 'given --password option' do
       let(:options) { { 'date' => date, 'password' => 'whiskey' } }
       let(:thor_args) { %w(yesterday --password=whiskey) }
+
+      before do
+        expect(Date).to receive_message_chain(:yesterday, :to_s).and_return(date)
+        expect(RedmineActivity::Fetcher).to receive(:new).with(options).and_return(fetcher_mock)
+        expect(fetcher_mock).to receive(:get).with(no_args)
+      end
+
+      it { is_expected.not_to output.to_stdout }
+    end
+
+    context 'given --user-id option' do
+      let(:options) { { 'date' => date, 'user_id' => 1 } }
+      let(:thor_args) { %w(yesterday --user-id=1) }
 
       before do
         expect(Date).to receive_message_chain(:yesterday, :to_s).and_return(date)

@@ -13,6 +13,7 @@ module RedmineActivity
     # @option options [String] :url Redmine URL
     # @option options [String] :login_id Login ID
     # @option options [String] :password Password
+    # @option options [Fixnum] :user_id User ID
     # @option options [String] :date Date
     def initialize(options = {})
       @url      = ENV['REDMINE_ACTIVITY_URL']
@@ -42,6 +43,8 @@ module RedmineActivity
 
         puts "#{Rainbow(title).yellow} (#{updated})" if cover?(updated_time)
       end
+    rescue Mechanize::ResponseCodeError => e
+      puts Rainbow('404 Not Found.').red if e.response_code == '404'
     end
 
     private
@@ -55,8 +58,10 @@ module RedmineActivity
     end
 
     def activity_atom_params
-      return ACTIVITY_ATOM_PARAMS unless @date
-      ACTIVITY_ATOM_PARAMS.merge(from: @date)
+      params = ACTIVITY_ATOM_PARAMS.dup
+      params[:from] = @date if @date
+      params[:user_id] = @user_id if @user_id
+      params
     end
 
     def cover?(time)

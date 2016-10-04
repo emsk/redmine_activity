@@ -9,6 +9,7 @@ module RedmineActivity
     option :url, type: :string
     option :login_id, type: :string
     option :password, type: :string
+    option :user_id, type: :numeric, banner: 'USER_ID'
     option :date, type: :string
 
     # Print one day's activities
@@ -23,6 +24,7 @@ module RedmineActivity
     option :url, type: :string
     option :login_id, type: :string
     option :password, type: :string
+    option :user_id, type: :numeric, banner: 'USER_ID'
 
     # Print today's activities
     def today
@@ -33,6 +35,7 @@ module RedmineActivity
     option :url, type: :string
     option :login_id, type: :string
     option :password, type: :string
+    option :user_id, type: :numeric, banner: 'USER_ID'
 
     # Print yesterday's activities
     def yesterday
