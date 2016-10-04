@@ -23,34 +23,35 @@ module RedmineActivity
       options.each do |key, value|
         instance_variable_set(:"@#{key}", value)
       end
+
+      @agent = Mechanize.new
     end
 
     # Fetch and print activities
     def get
-      agent = Mechanize.new
-      login_page = agent.get(login_url)
-      login_page.form_with(LOGIN_CRITERIA) do |form|
-        form.username = @login_id
-        form.password = @password
-      end.submit
-
-      body = agent.get(activity_atom_url, activity_atom_params).body
-      xml = Nokogiri::XML(body)
-      xml.css('entry').each do |entry|
-        title = entry.css('title').text
-        updated = entry.css('updated').text
-        updated_time = Time.parse(updated).utc
-
-        puts "#{Rainbow(title).yellow} (#{updated})" if cover?(updated_time)
-      end
+      login
+      parse(activities)
     rescue Mechanize::ResponseCodeError => e
       puts Rainbow('404 Not Found.').red if e.response_code == '404'
     end
 
     private
 
+    def login
+      login_page = @agent.get(login_url)
+      login_page.form_with(LOGIN_CRITERIA) do |form|
+        form.username = @login_id
+        form.password = @password
+      end.submit
+    end
+
     def login_url
       "#{@url}/login"
+    end
+
+    def activities
+      body = @agent.get(activity_atom_url, activity_atom_params).body
+      Nokogiri::XML(body)
     end
 
     def activity_atom_url
@@ -62,6 +63,16 @@ module RedmineActivity
       params[:from] = @date if @date
       params[:user_id] = @user_id if @user_id
       params
+    end
+
+    def parse(xml)
+      xml.css('entry').each do |entry|
+        title = entry.css('title').text
+        updated = entry.css('updated').text
+        updated_time = Time.parse(updated).utc
+
+        puts "#{Rainbow(title).yellow} (#{updated})" if cover?(updated_time)
+      end
     end
 
     def cover?(time)
