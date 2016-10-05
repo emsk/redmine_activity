@@ -92,5 +92,22 @@ Sample Project 1 - 機能 #52 (新規): サンプルチケット４ (2016-06-24T
         it { is_expected.to output(message).to_stdout }
       end
     end
+
+    context 'with invalid --user-id option', vcr: { cassette_name: 'with_invalid_user_id_option' } do
+      let(:fetcher) do
+        described_class.new(
+          url: ENV['REDMINE_ACTIVITY_URL'],
+          login_id: ENV['REDMINE_ACTIVITY_LOGIN_ID'],
+          password: ENV['REDMINE_ACTIVITY_PASSWORD'],
+          user_id: user_id
+        )
+      end
+      let(:user_id) { 0 }
+      let(:message) { "404 Not Found.\n" }
+
+      subject { -> { fetcher.get } }
+
+      it { is_expected.to output(message).to_stdout }
+    end
   end
 end
