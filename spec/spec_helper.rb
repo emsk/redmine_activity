@@ -26,7 +26,7 @@ VCR.configure do |c|
   c.configure_rspec_metadata!
 
   c.ignore_request do |request|
-    request.headers.has_key?('Referer')
+    request.headers.key?('Referer')
   end
 
   c.filter_sensitive_data('<REDMINE_ACTIVITY_URL>') { ENV['REDMINE_ACTIVITY_URL'] }
