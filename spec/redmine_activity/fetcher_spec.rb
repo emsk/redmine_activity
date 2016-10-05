@@ -2,6 +2,8 @@
 
 describe RedmineActivity::Fetcher do
   describe '#get' do
+    subject { -> { fetcher.get } }
+
     context 'with --date option', vcr: { cassette_name: 'with_date_option' } do
       let(:fetcher) do
         described_class.new(
@@ -15,8 +17,6 @@ describe RedmineActivity::Fetcher do
       before do
         expect(Date).to receive(:parse).and_return(Date.parse(date).in_time_zone('Asia/Tokyo')).once
       end
-
-      subject { -> { fetcher.get } }
 
       context 'when activities exist' do
         let(:date) { '2016-06-23' }
@@ -42,8 +42,6 @@ Sample Project 1 - 機能 #51 (新規): サンプルチケット３ (2016-06-22T
       before do
         expect(Date).to receive(:today).and_return(Date.parse(date).in_time_zone('Asia/Tokyo')).once
       end
-
-      subject { -> { fetcher.get } }
 
       context 'when activities exist' do
         let(:date) { '2016-06-22' }
@@ -77,8 +75,6 @@ Sample Project 1 - 機能 #49 (新規): サンプルチケット１ (2016-06-22T
         expect(Date).to receive(:today).and_return(Date.parse(date).in_time_zone('Asia/Tokyo')).once
       end
 
-      subject { -> { fetcher.get } }
-
       context 'when activities exist' do
         let(:user_id) { 2 }
         let(:date) { '2016-06-25' }
@@ -104,8 +100,6 @@ Sample Project 1 - 機能 #52 (新規): サンプルチケット４ (2016-06-24T
       end
       let(:user_id) { 0 }
       let(:message) { "404 Not Found.\n" }
-
-      subject { -> { fetcher.get } }
 
       it { is_expected.to output(message).to_stdout }
     end
