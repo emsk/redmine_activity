@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['emsk']
   spec.email         = ['emsk1987@gmail.com']
 
-  spec.summary       = %q{Summarize activities on Redmine.}
+  spec.summary       = %q{Summarize one day's activities on Redmine.}
   spec.homepage      = 'https://github.com/emsk/redmine_activity'
   spec.license       = 'MIT'
 

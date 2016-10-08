@@ -7,7 +7,7 @@
 [![Inline docs](http://inch-ci.org/github/emsk/redmine_activity.svg?branch=master)](http://inch-ci.org/github/emsk/redmine_activity)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt)
 
-Summarize activities on Redmine.
+Summarize one day's activities on Redmine.
 
 ## Installation
 

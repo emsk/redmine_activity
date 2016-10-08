@@ -1,7 +1,7 @@
 require 'thor'
 require 'redmine_activity/fetcher'
 
-# Summarize activities on Redmine
+# Summarize one day's activities on Redmine
 module RedmineActivity
   # Command-line interface of {RedmineActivity}
   class CLI < Thor
