@@ -9,6 +9,10 @@
 
 Summarize one day's activities on Redmine.
 
+## Prerequisite
+
+You have to install Ruby 2.0.0 or higher.
+
 ## Installation
 
 ```sh
@@ -56,9 +60,12 @@ You can execute the command without passing options.
 
 http://www.rubydoc.info/github/emsk/redmine_activity
 
-## Development
+## Supported Ruby Versions
 
-WIP
+* Ruby 2.0.0
+* Ruby 2.1
+* Ruby 2.2
+* Ruby 2.3
 
 ## Contributing
 
