@@ -5,6 +5,8 @@ require 'redmine_activity/fetcher'
 module RedmineActivity
   # Command-line interface of {RedmineActivity}
   class CLI < Thor
+    default_command :get
+
     desc 'get', "Print one day's activities"
     option :url, type: :string
     option :login_id, type: :string
