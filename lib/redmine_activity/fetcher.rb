@@ -67,11 +67,14 @@ module RedmineActivity
 
     def parse(xml)
       xml.css('entry').each do |entry|
-        title = entry.css('title').text
         updated = entry.css('updated').text
         updated_time = Time.parse(updated).utc
 
-        puts "#{Rainbow(title).yellow} (#{updated})" if cover?(updated_time)
+        next unless cover?(updated_time)
+
+        title = entry.css('title').text
+        name = entry.css('author name').text
+        output_summary(title, name, updated)
       end
     end
 
@@ -84,6 +87,10 @@ module RedmineActivity
 
       date = @date ? Date.parse(@date) : Date.today
       @time_range = date.beginning_of_day..date.end_of_day
+    end
+
+    def output_summary(title, name, updated)
+      puts "#{Rainbow(title).yellow} #{Rainbow("(#{name})").cyan} (#{updated})"
     end
   end
 end

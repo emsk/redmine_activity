@@ -22,7 +22,7 @@ describe RedmineActivity::Fetcher do
         let(:date) { '2016-06-23' }
         let(:message) do
           <<-EOS
-Sample Project 1 - 機能 #51 (新規): サンプルチケット３ (2016-06-22T15:00:00Z)
+Sample Project 1 - 機能 #51 (新規): サンプルチケット３ (テスト ユーザ１) (2016-06-22T15:00:00Z)
           EOS
         end
 
@@ -47,8 +47,8 @@ Sample Project 1 - 機能 #51 (新規): サンプルチケット３ (2016-06-22T
         let(:date) { '2016-06-22' }
         let(:message) do
           <<-EOS
-Sample Project 1 - 機能 #50 (新規): サンプルチケット２ (2016-06-22T14:59:59Z)
-Sample Project 1 - 機能 #49 (新規): サンプルチケット１ (2016-06-22T12:52:58Z)
+Sample Project 1 - 機能 #50 (新規): サンプルチケット２ (テスト ユーザ１) (2016-06-22T14:59:59Z)
+Sample Project 1 - 機能 #49 (新規): サンプルチケット１ (テスト ユーザ１) (2016-06-22T12:52:58Z)
           EOS
         end
 
@@ -80,8 +80,8 @@ Sample Project 1 - 機能 #49 (新規): サンプルチケット１ (2016-06-22T
         let(:date) { '2016-06-25' }
         let(:message) do
           <<-EOS
-Sample Project 1 - 機能 #53 (新規): サンプルチケット５ (2016-06-25T14:59:59Z)
-Sample Project 1 - 機能 #52 (新規): サンプルチケット４ (2016-06-24T15:00:00Z)
+Sample Project 1 - 機能 #53 (新規): サンプルチケット５ (テスト ユーザ２) (2016-06-25T14:59:59Z)
+Sample Project 1 - 機能 #52 (新規): サンプルチケット４ (テスト ユーザ２) (2016-06-24T15:00:00Z)
           EOS
         end
 
