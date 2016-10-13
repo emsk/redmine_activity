@@ -12,6 +12,7 @@ module RedmineActivity
     option :login_id, type: :string
     option :password, type: :string
     option :user_id, type: :numeric, banner: 'USER_ID'
+    option :project, type: :string, banner: 'PROJECT_IDENTIFIER'
     option :date, type: :string
 
     # Print one day's activities
@@ -27,6 +28,7 @@ module RedmineActivity
     option :login_id, type: :string
     option :password, type: :string
     option :user_id, type: :numeric, banner: 'USER_ID'
+    option :project, type: :string, banner: 'PROJECT_IDENTIFIER'
 
     # Print today's activities
     def today
@@ -38,6 +40,7 @@ module RedmineActivity
     option :login_id, type: :string
     option :password, type: :string
     option :user_id, type: :numeric, banner: 'USER_ID'
+    option :project, type: :string, banner: 'PROJECT_IDENTIFIER'
 
     # Print yesterday's activities
     def yesterday

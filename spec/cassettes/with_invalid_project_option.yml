@@ -1,0 +1,157 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: "<REDMINE_ACTIVITY_URL>/login"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Mechanize/2.7.4 Ruby/2.3.1p112 (http://github.com/sparklemotion/mechanize/)
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - "<REDMINE_ACTIVITY_HOST>"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 13 Oct 2016 15:51:20 GMT
+      Server:
+      - Apache
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Etag:
+      - W/"d0fb6105a80e1752c6818f41c68e06aa"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 3227f9fe-d270-4bee-83b1-293af8c945f9
+      Set-Cookie:
+      - _redmine_session=NjhScGlrSFZ5Ly9VTllsTnNONTdDbUtxY3NCVE5SQzZwelRPWjg3TzExQVVaZWFqNGIzSjJUZlFIemlPc2NXdXJKTUdFWGFhVlcvRkJMRS80cy9YK1RBNGROMDBQdFdPd2x3a2VONEpyYUQrSkFhYUVXSHJjL3FWRGVFcUlGbkIzYzJiZzR4ZUMrb3RCemZBbFlsVWhXaUNLajJNYmlLbHhSbFE0VHlmZmI3L29xb1B2akxWQXNJbDc4V2Vsejd1LS1HU2szdVBEVDJ1alRvOGxQY2dxSW5RPT0%3D--a1e27768d0e931cd05db4e8b7f145a995b5a8c1c;
+        path=/; HttpOnly
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/html; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\"
+        />\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/> \n<title>Redmine</title>\n<meta
+        name=\"description\" content=\"Redmine\" />\n<meta name=\"keywords\" content=\"issue,bug,tracker\"
+        />\n<meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\"
+        content=\"VNIRyF5ptTFpBkY1wbNz30YkUDhKvZLfkOgQXZPoeJA9kG8HvGXV513efyrATYLvPrGK8y5INqoc55mJSQ5nOA==\"
+        />\n<link rel='shortcut icon' href='/redmine/favicon.ico' />\n<link rel=\"stylesheet\"
+        media=\"all\" href=\"/redmine/stylesheets/jquery/jquery-ui-1.11.0.css\" />\n<link
+        rel=\"stylesheet\" media=\"all\" href=\"/redmine/themes/farend_basic/stylesheets/application.css\"
+        />\n\n<script src=\"/redmine/javascripts/jquery-1.11.1-ui-1.11.0-ujs-3.1.4.js\"></script>\n<script
+        src=\"/redmine/javascripts/application.js\"></script>\n<script>\n//<![CDATA[\n$(window).load(function(){
+        warnLeavingUnsaved('The current page contains unsaved text that will be lost
+        if you leave this page.'); });\n//]]>\n</script>\n\n\n<!-- page specific tags
+        -->\n</head>\n<body class=\"theme-Farend basic controller-account action-login\">\n<div
+        id=\"wrapper\">\n<div id=\"wrapper2\">\n<div id=\"wrapper3\">\n<div id=\"top-menu\">\n
+        \   <div id=\"account\">\n        <ul><li><a class=\"login\" href=\"/redmine/login\">Sign
+        in</a></li></ul>    </div>\n    \n    </div>\n\n<div id=\"header\">\n\n    <h1>Redmine</h1>\n\n</div>\n\n<div
+        id=\"main\" class=\"nosidebar\">\n    <div id=\"sidebar\">\n        \n        \n
+        \   </div>\n\n    <div id=\"content\">\n        \n        \n<div id=\"login-form\">\n<form
+        action=\"/redmine/login\" accept-charset=\"UTF-8\" method=\"post\"><input
+        name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" /><input type=\"hidden\"
+        name=\"authenticity_token\" value=\"6s7zs6WDE1HNa4HlhTvC638MyfmvvYqs9PZOJooFrbCDjI18R49zh/mzuPqExTPbB5kTMstILtl4+cfyUOOyGA==\"
+        />\n\n<table>\n<tr>\n    <td style=\"text-align:right;\"><label for=\"username\">Login:</label></td>\n
+        \   <td style=\"text-align:left;\"><input type=\"text\" name=\"username\"
+        id=\"username\" tabindex=\"1\" /></td>\n</tr>\n<tr>\n    <td style=\"text-align:right;\"><label
+        for=\"password\">Password:</label></td>\n    <td style=\"text-align:left;\"><input
+        type=\"password\" name=\"password\" id=\"password\" tabindex=\"2\" /></td>\n</tr>\n<tr>\n
+        \   <td></td>\n    <td style=\"text-align:left;\">\n    </td>\n</tr>\n<tr>\n
+        \   <td style=\"text-align:left;\">\n            <a href=\"/redmine/account/lost_password\">Lost
+        password</a>\n    </td>\n    <td style=\"text-align:right;\">\n        <input
+        type=\"submit\" name=\"login\" value=\"Login &#187;\" tabindex=\"5\"/>\n    </td>\n</tr>\n</table>\n</form></div>\n\n\n<script>\n//<![CDATA[\n$('#username').focus();\n//]]>\n</script>\n\n
+        \       \n        <div style=\"clear:both;\"></div>\n    </div>\n</div>\n</div>\n\n<div
+        id=\"ajax-indicator\" style=\"display:none;\"><span>Loading...</span></div>\n<div
+        id=\"ajax-modal\" style=\"display:none;\"></div>\n\n<div id=\"footer\">\n
+        \ <div class=\"bgl\"><div class=\"bgr\">\n    Powered by <a href=\"https://www.redmine.org/\">Redmine</a>
+        &copy; 2006-2015 Jean-Philippe Lang\n  </div></div>\n</div>\n</div>\n</div>\n\n</body>\n</html>\n"
+    http_version: 
+  recorded_at: Thu, 13 Oct 2016 15:51:20 GMT
+- request:
+    method: get
+    uri: "<REDMINE_ACTIVITY_URL>/projects/sample-project-2/activity.atom?show_issues=1"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Mechanize/2.7.4 Ruby/2.3.1p112 (http://github.com/sparklemotion/mechanize/)
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Cookie:
+      - _redmine_session=M05mTjNURG9jOXBoWWU1MC9kdXRHTlUwOXJSUDVxUEk3Vmk0U2NvTkxUWWRIRGJINWRpTXdnM09LNkFlUjFmT2xIMzF6d2E0U1RVNjFCVHRwaXZaNm1PMGw0VlBuZVF5NHNXWWZUQXEwQlpzbUZpWk1IVDg2NHFmTFRLYlpyNXBWL01Mcm5MRTNOeGZWTUlSeHNHbVZSK1NaOXY2UzFTRkZGUVFWdW4vMDVwQTFCTHVQeDJaNUVqU2VDclhQbTJPZ0J0cENCd084Y3pmMHBKcmlMN0N0aW91Z0M0VXFzWHgxQ2djYXhJVWttY25pbU5xbVcwYUNaNEl5L0dZZlE1SC0tUFp2cWhjMWs5Qk11akorQmU4YXlRUT09--0dc9268a7c4a9a8388b70083f650767b5ba8191f
+      Host:
+      - "<REDMINE_ACTIVITY_HOST>"
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 300
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Thu, 13 Oct 2016 15:51:20 GMT
+      Server:
+      - Apache
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Cache-Control:
+      - no-cache
+      X-Request-Id:
+      - a73c3f5c-a9a4-466c-bb8d-88ce7f790c18
+      Set-Cookie:
+      - _redmine_session=eUJlQzFDcmFHekp5QkEvUXFWMG5CTVBQRGlUaFV2RkpZV0ptZnE1VjFqMlEzQ09YYTl1VlBrbEw3citqWmJyb2FBWjlUNUtBNENTc1p1TVFlZVFmTVlPYzBocHZabmJDVEdGSW1SaG9YemRBakFkTnV5eXd6azFDRGFJeGlIeEJmanlHUnVwMzZuaUt0NE1ud0tCRnB3VVlycEE1UU9uMGxvTWEwck9SRlgvVHQ0N055cmprVXpjYWM5dDJONEZvL2hkTmZnUUN3WFJNVU5DK1pENXF6V1ZIdVRWV0Y1ZEpUYWV1bEdPN3pnZ0k1TVpwWm14UUx3L280Vm9jYUhMMS0ta0lyb0xHWmp4SlNyaDdkeGFnNkNOZz09--639d5a68b43cb78e0e97e8f39310d1b6fe1638d4;
+        path=/; HttpOnly
+      Status:
+      - 404 Not Found
+      Content-Length:
+      - '0'
+      Connection:
+      - close
+      Content-Type:
+      - application/atom+xml
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Thu, 13 Oct 2016 15:51:20 GMT
+recorded_with: VCR 3.0.3

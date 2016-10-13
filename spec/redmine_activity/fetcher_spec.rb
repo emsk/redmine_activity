@@ -103,5 +103,47 @@ Sample Project 1 - 機能 #52 (新規): サンプルチケット４ (テスト �
 
       it { is_expected.to output(message).to_stdout }
     end
+
+    context 'with --project option', vcr: { cassette_name: 'with_project_option' } do
+      let(:fetcher) do
+        described_class.new(
+          url: ENV['REDMINE_ACTIVITY_URL'],
+          login_id: ENV['REDMINE_ACTIVITY_LOGIN_ID'],
+          password: ENV['REDMINE_ACTIVITY_PASSWORD'],
+          project: project
+        )
+      end
+
+      before do
+        expect(Date).to receive(:today).and_return(Date.parse(date).in_time_zone('Asia/Tokyo')).once
+      end
+
+      context 'when activities exist' do
+        let(:project) { 'sample-project-1' }
+        let(:date) { '2016-10-14' }
+        let(:message) do
+          <<-EOS
+Sample Project 1 - 機能 #54 (新規): サンプルチケット６ (テスト ユーザ１) (2016-10-13T15:00:00Z)
+          EOS
+        end
+
+        it { is_expected.to output(message).to_stdout }
+      end
+    end
+
+    context 'with invalid --project option', vcr: { cassette_name: 'with_invalid_project_option' } do
+      let(:fetcher) do
+        described_class.new(
+          url: ENV['REDMINE_ACTIVITY_URL'],
+          login_id: ENV['REDMINE_ACTIVITY_LOGIN_ID'],
+          password: ENV['REDMINE_ACTIVITY_PASSWORD'],
+          project: project
+        )
+      end
+      let(:project) { 'sample-project-2' }
+      let(:message) { "404 Not Found.\n" }
+
+      it { is_expected.to output(message).to_stdout }
+    end
   end
 end

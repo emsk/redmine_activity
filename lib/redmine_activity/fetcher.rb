@@ -14,6 +14,7 @@ module RedmineActivity
     # @option options [String] :login_id Login ID
     # @option options [String] :password Password
     # @option options [Fixnum] :user_id User ID
+    # @option options [String] :project Project identifier
     # @option options [String] :date Date
     def initialize(options = {})
       @url      = ENV['REDMINE_ACTIVITY_URL']
@@ -55,7 +56,8 @@ module RedmineActivity
     end
 
     def activity_atom_url
-      "#{@url}/activity.atom"
+      project = "/projects/#{@project}" if @project
+      "#{@url}#{project}/activity.atom"
     end
 
     def activity_atom_params
@@ -66,6 +68,8 @@ module RedmineActivity
     end
 
     def parse(xml)
+      project_title = xml.css('feed > title').text[/(.+):/, 1]
+
       xml.css('entry').each do |entry|
         updated = entry.css('updated').text
         updated_time = Time.parse(updated).utc
@@ -73,6 +77,7 @@ module RedmineActivity
         next unless cover?(updated_time)
 
         title = entry.css('title').text
+        title = "#{project_title} - #{title}" if @project
         name = entry.css('author name').text
         output_summary(title, name, updated)
       end
