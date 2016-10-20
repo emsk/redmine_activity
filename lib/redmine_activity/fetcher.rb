@@ -4,7 +4,6 @@ require 'mechanize'
 module RedmineActivity
   # Class to fetch and parse activity page
   class Fetcher
-    LOGIN_CRITERIA = { action: '/redmine/login' }
     ACTIVITY_ATOM_PARAMS = { show_issues: 1 }
 
     # Initialize a new Fetcher object
@@ -40,10 +39,10 @@ module RedmineActivity
 
     def login
       login_page = @agent.get(login_url)
-      login_page.form_with(LOGIN_CRITERIA) do |form|
-        form.username = @login_id
-        form.password = @password
-      end.submit
+      form = login_page.forms[0]
+      form.username = @login_id
+      form.password = @password
+      form.submit
     end
 
     def login_url
