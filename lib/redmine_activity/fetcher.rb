@@ -5,6 +5,7 @@ module RedmineActivity
   # Class to fetch and parse activity page
   class Fetcher
     ACTIVITY_ATOM_PARAMS = { show_issues: 1 }
+    TIME_FORMAT = '%Y-%m-%d %H:%M:%S'
 
     # Initialize a new Fetcher object
     #
@@ -78,7 +79,7 @@ module RedmineActivity
         title = entry.css('title').text
         title = "#{project_title} - #{title}" if @project
         name = entry.css('author name').text
-        output_summary(title, name, updated)
+        output_summary(title, name, format_time(updated_time.getlocal))
       end
     end
 
@@ -91,6 +92,10 @@ module RedmineActivity
 
       date = @date ? Date.parse(@date) : Date.today
       @time_range = date.beginning_of_day..date.end_of_day
+    end
+
+    def format_time(time)
+      time.strftime(TIME_FORMAT)
     end
 
     def output_summary(title, name, updated)
