@@ -70,7 +70,7 @@ module RedmineActivity
     def parse(xml)
       project_title = xml.css('feed > title').text[/(.+):/, 1]
 
-      xml.css('entry').each do |entry|
+      xml.css('entry').reverse_each do |entry|
         updated = entry.css('updated').text
         updated_time = Time.parse(updated).utc
 
