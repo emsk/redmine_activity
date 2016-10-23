@@ -99,7 +99,9 @@ module RedmineActivity
     end
 
     def output_summary(title, name, updated)
-      puts "#{Rainbow(title).yellow} #{Rainbow("(#{name})").cyan} (#{updated})"
+      summary = "#{Rainbow(title).yellow} #{Rainbow("(#{name})").cyan} (#{updated})"
+      summary.encode!(Encoding::CP932, invalid: :replace, undef: :replace) if Gem.win_platform?
+      puts summary
     end
   end
 end
