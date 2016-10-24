@@ -71,6 +71,10 @@ http://www.rubydoc.info/github/emsk/redmine_activity
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/emsk/redmine_activity.
 
+## Related
+
+* [mruby-redmine_activity](https://github.com/emsk/mruby-redmine_activity) - An mruby implementation of the redmine_activity
+
 ## License
 
 [MIT](LICENSE.txt)
