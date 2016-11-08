@@ -3,6 +3,13 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   DisplayCopNames: true
 
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
+    - '*.gemspec'
+
 Metrics/LineLength:
   Max: 100
   Exclude:
