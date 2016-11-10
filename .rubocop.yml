@@ -16,6 +16,10 @@ Metrics/LineLength:
     - 'redmine_activity.gemspec'
     - 'spec/**/*'
 
+Style/GuardClause:
+  Exclude:
+    - '*.gemspec'
+
 Style/PercentLiteralDelimiters:
   Enabled: false
 
