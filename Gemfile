@@ -5,3 +5,7 @@ gemspec
 if Gem::Version.create(RUBY_VERSION) < Gem::Version.create('2.2.2')
   gem 'activesupport', '< 5.0.0'
 end
+
+if Gem::Version.create(RUBY_VERSION) < Gem::Version.create('2.1.0')
+  gem 'nokogiri', '< 1.7.0'
+end
