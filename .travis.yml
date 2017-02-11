@@ -8,6 +8,7 @@ rvm:
   - 2.4.0
 before_install:
   - export TZ='Asia/Tokyo'
+  - gem update --system
   - gem install bundler -v 1.12.5
 env:
   global:
