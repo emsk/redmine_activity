@@ -33,15 +33,6 @@ Naming/HeredocDelimiterNaming:
     - 'spec/redmine_activity/cli_spec.rb'
     - 'spec/redmine_activity/fetcher_spec.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, AutoCorrectEncodingComment.
-# SupportedStyles: when_needed, always, never
-Style/Encoding:
-  Exclude:
-    - 'redmine_activity.gemspec'
-    - 'spec/redmine_activity/fetcher_spec.rb'
-
 # Offense count: 3
 # Cop supports --auto-correct.
 Style/MutableConstant:

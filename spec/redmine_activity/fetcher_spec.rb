@@ -1,5 +1,3 @@
-# coding: utf-8
-
 describe RedmineActivity::Fetcher do
   describe '#get' do
     subject { -> { fetcher.get } }
