@@ -169,10 +169,10 @@ describe RedmineActivity::CLI do
     context 'given --date option' do
       let(:thor_args) { %w(today --date=2016-01-01) }
       let(:message) do
-        <<-EOS
+        <<-ERROR
 ERROR: "#{command} today" was called with arguments ["--date=2016-01-01"]
 Usage: "#{command} today"
-        EOS
+        ERROR
       end
 
       before do
@@ -268,10 +268,10 @@ Usage: "#{command} today"
     context 'given --date option' do
       let(:thor_args) { %w(yesterday --date=2016-01-01) }
       let(:message) do
-        <<-EOS
+        <<-ERROR
 ERROR: "#{command} yesterday" was called with arguments ["--date=2016-01-01"]
 Usage: "#{command} yesterday"
-        EOS
+        ERROR
       end
 
       before do

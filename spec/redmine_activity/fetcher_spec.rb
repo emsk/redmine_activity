@@ -19,9 +19,9 @@ describe RedmineActivity::Fetcher do
       context 'when activities exist' do
         let(:date) { '2016-06-23' }
         let(:message) do
-          <<-EOS
+          <<-ACTIVITIES
 Sample Project 1 - 機能 #51 (新規): サンプルチケット３ (テスト ユーザ１) (2016-06-23 00:00:00)
-          EOS
+          ACTIVITIES
         end
 
         it { is_expected.to output(message).to_stdout }
@@ -44,10 +44,10 @@ Sample Project 1 - 機能 #51 (新規): サンプルチケット３ (テスト �
       context 'when activities exist' do
         let(:date) { '2016-06-22' }
         let(:message) do
-          <<-EOS
+          <<-ACTIVITIES
 Sample Project 1 - 機能 #49 (新規): サンプルチケット１ (テスト ユーザ１) (2016-06-22 21:52:58)
 Sample Project 1 - 機能 #50 (新規): サンプルチケット２ (テスト ユーザ１) (2016-06-22 23:59:59)
-          EOS
+          ACTIVITIES
         end
 
         it { is_expected.to output(message).to_stdout }
@@ -77,10 +77,10 @@ Sample Project 1 - 機能 #50 (新規): サンプルチケット２ (テスト �
         let(:user_id) { 2 }
         let(:date) { '2016-06-25' }
         let(:message) do
-          <<-EOS
+          <<-ACTIVITIES
 Sample Project 1 - 機能 #52 (新規): サンプルチケット４ (テスト ユーザ２) (2016-06-25 00:00:00)
 Sample Project 1 - 機能 #53 (新規): サンプルチケット５ (テスト ユーザ２) (2016-06-25 23:59:59)
-          EOS
+          ACTIVITIES
         end
 
         it { is_expected.to output(message).to_stdout }
@@ -120,9 +120,9 @@ Sample Project 1 - 機能 #53 (新規): サンプルチケット５ (テスト �
         let(:project) { 'sample-project-1' }
         let(:date) { '2016-10-14' }
         let(:message) do
-          <<-EOS
+          <<-ACTIVITIES
 Sample Project 1 - 機能 #54 (新規): サンプルチケット６ (テスト ユーザ１) (2016-10-14 00:00:00)
-          EOS
+          ACTIVITIES
         end
 
         it { is_expected.to output(message).to_stdout }
