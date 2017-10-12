@@ -4,8 +4,8 @@ require 'mechanize'
 module RedmineActivity
   # Class to fetch and parse activity page
   class Fetcher
-    ACTIVITY_ATOM_PARAMS = { show_issues: 1 }
-    TIME_FORMAT = '%Y-%m-%d %H:%M:%S'
+    ACTIVITY_ATOM_PARAMS = { show_issues: 1 }.freeze
+    TIME_FORMAT = '%Y-%m-%d %H:%M:%S'.freeze
 
     # Initialize a new Fetcher object
     #

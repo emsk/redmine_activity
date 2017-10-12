@@ -24,10 +24,3 @@ Layout/IndentHeredoc:
 # Offense count: 1
 Metrics/AbcSize:
   Max: 19
-
-# Offense count: 3
-# Cop supports --auto-correct.
-Style/MutableConstant:
-  Exclude:
-    - 'lib/redmine_activity/fetcher.rb'
-    - 'lib/redmine_activity/version.rb'
