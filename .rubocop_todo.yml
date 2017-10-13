@@ -12,15 +12,6 @@ Layout/EmptyLineAfterMagicComment:
   Exclude:
     - 'redmine_activity.gemspec'
 
-# Offense count: 6
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: auto_detection, squiggly, active_support, powerpack, unindent
-Layout/IndentHeredoc:
-  Exclude:
-    - 'spec/redmine_activity/cli_spec.rb'
-    - 'spec/redmine_activity/fetcher_spec.rb'
-
 # Offense count: 1
 Metrics/AbcSize:
   Max: 19
