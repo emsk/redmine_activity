@@ -11,7 +11,3 @@
 Layout/EmptyLineAfterMagicComment:
   Exclude:
     - 'redmine_activity.gemspec'
-
-# Offense count: 1
-Metrics/AbcSize:
-  Max: 19
