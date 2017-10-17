@@ -38,5 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 0.50'
   spec.add_development_dependency 'simplecov', '~> 0.14'
   spec.add_development_dependency 'vcr', '~> 3.0'
-  spec.add_development_dependency 'webmock', '~> 2.1'
+  spec.add_development_dependency 'webmock', '~> 3.1'
 end
