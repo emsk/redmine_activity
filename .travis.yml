@@ -10,8 +10,14 @@ rvm:
   - ruby-head
 before_install:
   - export TZ='Asia/Tokyo'
-  - gem update --system
-  - gem update bundler
+  - |
+    if [[ `ruby -v` =~ 2\.[0-2]\.[0-9]+ ]]; then
+      gem install rubygems-update -v '<3' && update_rubygems
+      gem install bundler -v '<2'
+    else
+      gem update --system
+      gem update bundler
+    fi
 env:
   global:
     - secure: yPvfk7cGAH887D3qxmnsPr3IGnuLmEwQLU/FvSyDNMWNhh9UahyJJnHLZIQWaqioZCr2myjX53ZB0oDv3UgM0bqHrW1HoWKG91hlBoRtWN1/nIK+rT0MXzLwgyDK5jQTM9oLuD+fpP3t21aSnBBCaEQ3BUK3gaL6DCfEsDzFexk9wxDLmn/+QY+oQ9FDE3ny0FXzXNcsvttb0ogMZ8jJxNRI6c65Afmx6FhPBK5x36F8mIFgOlUfqvFRhRWA3ysDH5R/TljncX7YNp2te/8IWS5NQNiTm6P59veBtrgI4oyaqDsT0ww9rYN0YBulAeHHpgip2Qr74sr3ws6TkhC98bL2KmOT/8rtH/hp6TWxHdh5JN2hdjIbTG8qQ2jHswLqMtCmlzbM6/YnkIJDh5KPcMNWQVFEHAPwGxCPQtV/reFhFmx/XjIZrARn4d/wlV6cjFlV0pc1vvD02hKxnd01Zy0Et5GXW4xvDOr/1jsf0S6ErPs79o0yBDX7rmnflPa6+591ZIeBsTVQUr9AdCZGnOA4Q8YGTe0z5ouInQJxVGNSrzwoFF3VILc5sodVHq9HOteZJ1rSWrJ4B7WRsOe6/pSE3hM1ArnWnnmvrvGzYk88JEVA2yfsuCHHs2GaFBr7X0xyqbO1ojjqJPEBrzg74BfsXLbI1D6Z3dgJSHr9yOc=
