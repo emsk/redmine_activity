@@ -1,9 +1,9 @@
 # RedmineActivity
 
-[![Build Status](https://travis-ci.org/emsk/redmine_activity.svg?branch=master)](https://travis-ci.org/emsk/redmine_activity)
-[![Coverage Status](https://coveralls.io/repos/github/emsk/redmine_activity/badge.svg?branch=master)](https://coveralls.io/github/emsk/redmine_activity)
+[![Build Status](https://travis-ci.org/emsk/redmine_activity.svg?branch=main)](https://travis-ci.org/emsk/redmine_activity)
+[![Coverage Status](https://coveralls.io/repos/github/emsk/redmine_activity/badge.svg?branch=main)](https://coveralls.io/github/emsk/redmine_activity)
 [![Code Climate](https://codeclimate.com/github/emsk/redmine_activity/badges/gpa.svg)](https://codeclimate.com/github/emsk/redmine_activity)
-[![Inline docs](http://inch-ci.org/github/emsk/redmine_activity.svg?branch=master)](http://inch-ci.org/github/emsk/redmine_activity)
+[![Inline docs](http://inch-ci.org/github/emsk/redmine_activity.svg?branch=main)](http://inch-ci.org/github/emsk/redmine_activity)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.txt)
 
 Summarize one day's activities on Redmine.
